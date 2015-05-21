@@ -15,6 +15,7 @@
             <string>Gotham-Book</string>
             <string>Gotham-Book</string>
             <string>Gotham-Book</string>
+            <string>Gotham-Book</string>
         </mutableArray>
         <mutableArray key="Gotham-Light.otf">
             <string>Gotham-Light</string>
@@ -553,9 +554,26 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                     <action selector="backButtonTapped:" destination="Nmh-ef-vpa" eventType="touchUpInside" id="nkl-yf-7Wp"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cp9-M3-Ao7" customClass="SPKPinFunctionView">
-                                <rect key="frame" x="198" y="238" width="204" height="124"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cp9-M3-Ao7" customClass="SPKPinFunctionView">
+                                <rect key="frame" x="177" y="238" width="246" height="124"/>
                                 <subviews>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dhx-m1-2aE">
+                                        <rect key="frame" x="4" y="10" width="240" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="nSD-dl-voc"/>
+                                            <constraint firstAttribute="height" constant="24" id="szZ-No-rhK"/>
+                                            <constraint firstAttribute="width" constant="240" id="vqj-Qb-avx"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="nSD-dl-voc"/>
+                                                <exclude reference="szZ-No-rhK"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunflower" translatesAutoresizingMaskIntoConstraints="NO" id="0Dp-bl-5EV">
                                         <rect key="frame" x="0.0" y="86" width="6" height="37"/>
                                         <constraints>
@@ -571,25 +589,40 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyan" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-y1-Ivz">
-                                        <rect key="frame" x="199" y="41" width="5" height="37"/>
+                                        <rect key="frame" x="241" y="41" width="5" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="YaM-Jg-0Dj"/>
                                             <constraint firstAttribute="width" constant="5" id="sZj-2E-xYl"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alizarin" translatesAutoresizingMaskIntoConstraints="NO" id="hhT-Ph-kTP">
-                                        <rect key="frame" x="199" y="86" width="5" height="37"/>
+                                        <rect key="frame" x="241" y="86" width="5" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="5" id="6mv-U3-ndH"/>
                                             <constraint firstAttribute="height" constant="37" id="Cul-HU-wXx"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3J-1g-5pI" userLabel="editPinNameButton">
+                                        <rect key="frame" x="218" y="4" width="28" height="28"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="Sk6-az-VDB"/>
+                                            <constraint firstAttribute="height" constant="28" id="f2D-3s-qI6"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" image="imgPencil"/>
+                                        <connections>
+                                            <action selector="editDeviceNameButtonTapped:" destination="Nmh-ef-vpa" eventType="touchUpInside" id="3hA-sE-4D8"/>
+                                            <action selector="editPinNameButtonTapped:" destination="cp9-M3-Ao7" eventType="touchUpInside" id="cdm-iI-PXp"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uo-PR-xcJ">
-                                        <rect key="frame" x="0.0" y="40" width="100" height="40"/>
+                                        <rect key="frame" x="0.0" y="40" width="120" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="kQu-xr-o17"/>
-                                            <constraint firstAttribute="width" constant="100" id="qws-0G-A5g"/>
+                                            <constraint firstAttribute="width" constant="120" id="qws-0G-A5g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="13"/>
                                         <inset key="contentEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -602,10 +635,10 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kep-d7-v4h">
-                                        <rect key="frame" x="0.0" y="84" width="100" height="40"/>
+                                        <rect key="frame" x="0.0" y="84" width="120" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Qob-Le-MTV"/>
+                                            <constraint firstAttribute="width" constant="120" id="Qob-Le-MTV"/>
                                             <constraint firstAttribute="height" constant="40" id="lb3-Yp-fcH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="13"/>
@@ -619,11 +652,11 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZI-mP-P5L">
-                                        <rect key="frame" x="104" y="40" width="100" height="40"/>
+                                        <rect key="frame" x="126" y="40" width="120" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="99w-iQ-ZSi"/>
-                                            <constraint firstAttribute="width" constant="100" id="CiN-25-sFq"/>
+                                            <constraint firstAttribute="width" constant="120" id="CiN-25-sFq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="13"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="14" maxY="0.0"/>
@@ -636,11 +669,11 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmO-7c-yA1">
-                                        <rect key="frame" x="104" y="84" width="100" height="40"/>
+                                        <rect key="frame" x="126" y="84" width="120" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="PjV-hm-eS3"/>
-                                            <constraint firstAttribute="width" constant="100" id="qHY-5P-gmC"/>
+                                            <constraint firstAttribute="width" constant="120" id="qHY-5P-gmC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="13"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="14" maxY="0.0"/>
@@ -653,7 +686,7 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NEU-nT-aGU">
-                                        <rect key="frame" x="91" y="12" width="23" height="15"/>
+                                        <rect key="frame" x="112" y="12" width="23" height="15"/>
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -664,15 +697,19 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                     <constraint firstAttribute="centerX" secondItem="NEU-nT-aGU" secondAttribute="centerX" id="1cy-7b-CrH"/>
                                     <constraint firstItem="hhT-Ph-kTP" firstAttribute="trailing" secondItem="GmO-7c-yA1" secondAttribute="trailing" id="29Z-1z-g5H"/>
                                     <constraint firstItem="YGr-y1-Ivz" firstAttribute="trailing" secondItem="HZI-mP-P5L" secondAttribute="trailing" id="6uE-C3-2nN"/>
-                                    <constraint firstAttribute="width" constant="204" id="8xW-Ni-Q5c"/>
+                                    <constraint firstAttribute="width" constant="246" id="8xW-Ni-Q5c"/>
+                                    <constraint firstItem="NEU-nT-aGU" firstAttribute="centerX" secondItem="dhx-m1-2aE" secondAttribute="centerX" id="9Aa-bb-inQ"/>
+                                    <constraint firstItem="NEU-nT-aGU" firstAttribute="centerY" secondItem="dhx-m1-2aE" secondAttribute="centerY" id="DCo-yf-dtO"/>
                                     <constraint firstItem="NEU-nT-aGU" firstAttribute="top" secondItem="cp9-M3-Ao7" secondAttribute="top" constant="12" id="HEP-9L-tfh"/>
                                     <constraint firstItem="0Dp-bl-5EV" firstAttribute="centerY" secondItem="Kep-d7-v4h" secondAttribute="centerY" id="LCa-Th-DEJ"/>
                                     <constraint firstItem="GmO-7c-yA1" firstAttribute="top" secondItem="cp9-M3-Ao7" secondAttribute="top" constant="84" id="LkK-Y0-Z1h"/>
                                     <constraint firstItem="0Dp-bl-5EV" firstAttribute="leading" secondItem="Kep-d7-v4h" secondAttribute="leading" id="OAF-Vg-U9c"/>
                                     <constraint firstItem="hhT-Ph-kTP" firstAttribute="centerY" secondItem="GmO-7c-yA1" secondAttribute="centerY" id="OyW-MP-yj4"/>
                                     <constraint firstItem="HZI-mP-P5L" firstAttribute="top" secondItem="cp9-M3-Ao7" secondAttribute="top" constant="40" id="TQH-5g-IXk"/>
+                                    <constraint firstAttribute="trailing" secondItem="C3J-1g-5pI" secondAttribute="trailing" id="atD-wI-QbN"/>
                                     <constraint firstAttribute="trailing" secondItem="GmO-7c-yA1" secondAttribute="trailing" id="ebb-2r-aob"/>
                                     <constraint firstItem="mDh-xo-YvB" firstAttribute="leading" secondItem="0Uo-PR-xcJ" secondAttribute="leading" id="ehs-HC-VBT"/>
+                                    <constraint firstItem="C3J-1g-5pI" firstAttribute="top" secondItem="cp9-M3-Ao7" secondAttribute="top" constant="4" id="jmW-2V-Qwn"/>
                                     <constraint firstItem="0Uo-PR-xcJ" firstAttribute="leading" secondItem="cp9-M3-Ao7" secondAttribute="leading" id="mr6-oT-O2j"/>
                                     <constraint firstItem="Kep-d7-v4h" firstAttribute="top" secondItem="cp9-M3-Ao7" secondAttribute="top" constant="84" id="ozu-SD-8Ez"/>
                                     <constraint firstItem="mDh-xo-YvB" firstAttribute="centerY" secondItem="0Uo-PR-xcJ" secondAttribute="centerY" constant="0.5" id="s0u-dg-KTG"/>
@@ -691,6 +728,8 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                                     <outlet property="digitalReadImageView" destination="YGr-y1-Ivz" id="PZE-Mq-Jiw"/>
                                     <outlet property="digitalWriteButton" destination="GmO-7c-yA1" id="k63-bp-b5e"/>
                                     <outlet property="digitalWriteImageView" destination="hhT-Ph-kTP" id="ghm-uO-Dfw"/>
+                                    <outlet property="editPinNameButton" destination="C3J-1g-5pI" id="35i-HR-kJH"/>
+                                    <outlet property="editPinNameTextField" destination="dhx-m1-2aE" id="us1-wz-rpd"/>
                                     <outlet property="pinLabel" destination="NEU-nT-aGU" id="eSG-yd-UYa"/>
                                 </connections>
                             </view>
@@ -743,7 +782,7 @@ Tap any pin to get started, select a pin function and tinker with the value. Hol
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxJ-10-rv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3096" y="611"/>
+            <point key="canvasLocation" x="3048" y="611"/>
         </scene>
     </scenes>
     <resources>

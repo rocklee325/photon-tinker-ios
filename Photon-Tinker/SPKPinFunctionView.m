@@ -10,6 +10,11 @@
 #define selectedColor       [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]
 #define unselectedColor     [UIColor colorWithRed:0 green:0 blue:0 alpha:0.15]
 
+@interface SPKPinFunctionView() <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *editPinNameButton;
+@property (weak, nonatomic) IBOutlet UITextField *editPinNameTextField;
+@end
+
 @implementation SPKPinFunctionView
 
 - (void)setPin:(SPKCorePin *)pin
@@ -93,4 +98,19 @@
     [self.delegate pinFunctionSelected:function];
 }
 
+- (IBAction)editPinNameButtonTapped:(id)sender
+{
+    self.editPinNameTextField.hidden = NO;
+    self.editPinNameButton.hidden = YES;
+    self.editPinNameTextField.delegate = self;
+    self.pinLabel.hidden = YES;
+    [self.editPinNameTextField becomeFirstResponder];
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //.. do something with new name
+    return YES;
+}
 @end
