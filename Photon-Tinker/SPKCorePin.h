@@ -35,7 +35,7 @@ typedef NS_OPTIONS(uint8_t, SPKCorePinFunction)
 
 @interface SPKCorePin : NSObject
 
-@property (nonatomic, readonly) NSString *label;
+@property (nonatomic, strong) NSString *label;
 @property (nonatomic, readonly) NSString *logicalName;
 @property (nonatomic, readonly) SPKCorePinSide side;
 @property (nonatomic, readonly) NSUInteger row;

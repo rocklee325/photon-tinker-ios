@@ -10,8 +10,8 @@
 
 @protocol SPKPinFunctionDelegate <NSObject>
 
-- (void)pinFunctionSelected:(SPKCorePinFunction)function;
-
+-(void)pinFunctionSelected:(SPKCorePinFunction)function;
+-(void)pinNameChangedTo:(NSString *)newPinName;
 @end
 
 /*
@@ -32,6 +32,7 @@
 @property (weak) IBOutlet UIButton *digitalWriteButton;
 
 @property (nonatomic, strong) SPKCorePin *pin;
+@property (nonatomic) BOOL editingPinName;
 @property (nonatomic, weak) NSObject<SPKPinFunctionDelegate> *delegate;
 
 - (IBAction)functionSelected:(id)sender;

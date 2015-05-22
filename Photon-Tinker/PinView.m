@@ -19,7 +19,7 @@
 @property (nonatomic) BOOL longPressDetected;
 @property (nonatomic, strong) SSPieProgressView *outerPieValueView;
 @property (nonatomic, strong) SSPieProgressView *outerPieFrameView;
-
+@property (nonatomic) CGFloat pinSizingOffset;
 @end
 
 @implementation PinView
@@ -43,10 +43,11 @@
         _active = NO;
         
         
-        CGFloat pinSizingOffset = 6; // TODO: calculate from screensize
+        self.pinSizingOffset = 6; // TODO: calculate from screensize
         if (IS_IPHONE_4_OR_LESS)
-            pinSizingOffset = 0;
+            self.pinSizingOffset = 0;
         
+        CGFloat pinSizingOffset = self.pinSizingOffset;
         [self setFrame:CGRectMake(0,0,38+pinSizingOffset,38+pinSizingOffset)];
         
         self.innerPinButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -132,8 +133,33 @@
 }
 
 
+-(void)updatePinLabel
+{
+    self.label.text = self.pin.label;
+    if (self.pin.label.length <= 3)
+    {
+        [self.label setFrame:CGRectMake(4, 4, 30+self.pinSizingOffset, 30+self.pinSizingOffset)];
+        self.label.center = self.innerPinButton.center;
+    }
+    else
+    {
+        [self.label setFrame:CGRectMake(self.innerPinButton.frame.origin.x,0, self.frame.size.width, 16)];
+//        [self.label setFrame:self.frame];
+    }
+    
+    if (self.pin.label.length <= 2)
+        self.label.font = [UIFont fontWithName:@"Gotham-Medium" size:14.0+(self.pinSizingOffset/3)];
+    else
+        self.label.font = [UIFont fontWithName:@"Gotham-Medium" size:10.5+(self.pinSizingOffset/3)];
+
+    
+}
+
 -(void)refresh
 {
+    if (![self.label.text isEqualToString:self.pin.label])
+        [self updatePinLabel];
+
     if (self.active)
     {
         self.outerPieValueView.hidden = NO;

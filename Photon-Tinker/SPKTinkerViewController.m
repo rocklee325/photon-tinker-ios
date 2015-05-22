@@ -220,7 +220,7 @@
                                                        constant:v.bounds.size.height]]; //50
         
         v.delegate = self;
-        self.pinViews[pin.label] = v;
+        self.pinViews[pin.logicalName] = v;
         
         // Pin Value View
         PinValueView *pvv = [[PinValueView alloc] initWithPin:pin];
@@ -300,7 +300,7 @@
 - (void)pinFunctionSelected:(SPKCorePinFunction)function
 {
     SPKCorePin *pin = self.pinFunctionView.pin;
-    PinView *pinView = self.pinViews[pin.label];
+    PinView *pinView = self.pinViews[pin.logicalName];
 
     if (pin.selectedFunction != function)
     {
@@ -468,6 +468,7 @@
 {
     if (!self.pinFunctionView.hidden)
     {
+        self.pinFunctionView.editingPinName = NO;
         self.tinkerLogoImageView.hidden = NO;
         self.pinFunctionView.hidden = YES;
         for (PinView *pv in self.pinViews.allValues) {
@@ -476,6 +477,16 @@
         }
     
     }
+}
+
+-(void)pinNameChangedTo:(NSString *)newPinName
+{
+    SPKCorePin *pin = self.pinFunctionView.pin;
+    PinView *pinView = self.pinViews[pin.logicalName];
+    [pinView refresh];
+    
+    // more stuff?
+    
 }
 
 

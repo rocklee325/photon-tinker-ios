@@ -98,19 +98,44 @@
     [self.delegate pinFunctionSelected:function];
 }
 
+
+-(void)setEditingPinName:(BOOL)editingPinName
+{
+    if (editingPinName)
+    {
+        self.editPinNameTextField.hidden = NO;
+        self.editPinNameButton.hidden = YES;
+        self.editPinNameTextField.delegate = self;
+        self.pinLabel.hidden = YES;
+        [self.editPinNameTextField becomeFirstResponder];
+    }
+    else
+    {
+        self.editPinNameTextField.hidden = YES;
+        self.editPinNameButton.hidden = NO;
+        self.pinLabel.hidden = NO;
+    }
+}
+
+
 - (IBAction)editPinNameButtonTapped:(id)sender
 {
-    self.editPinNameTextField.hidden = NO;
-    self.editPinNameButton.hidden = YES;
-    self.editPinNameTextField.delegate = self;
-    self.pinLabel.hidden = YES;
-    [self.editPinNameTextField becomeFirstResponder];
-    
+    self.editingPinName = YES;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    NSLog(@"textFieldShouldReturn");
     //.. do something with new name
+    if (textField == self.editPinNameTextField)
+    {
+        self.pinLabel.text = textField.text;
+        self.pin.label = textField.text;
+        self.editingPinName = NO;
+        [self.delegate pinNameChangedTo:self.pin.label];
+        // update pinview
+    }
+    
     return YES;
 }
 @end
