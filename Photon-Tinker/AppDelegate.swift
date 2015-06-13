@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SystemConfiguration.CaptiveNetwork
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
         return true
     }
 
@@ -31,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        println(AppDelegate.getSSID())
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -41,6 +45,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    /*
+    class func getSSID() -> String {
+        
+        let interfaces = CNCopySupportedInterfaces()
+        if interfaces == nil {
+            return ""
+        }
+        
+        let interfacesArray = interfaces.takeRetainedValue() as! [String]
+        if interfacesArray.count <= 0 {
+            return ""
+        }
+        
+        let interfaceName = interfacesArray[0] as String
+        let unsafeInterfaceData = CNCopyCurrentNetworkInfo(interfaceName)
+        if unsafeInterfaceData == nil {
+            return ""
+        }
+        
+        let interfaceData = unsafeInterfaceData.takeRetainedValue() as Dictionary!
+        
+        return interfaceData["SSID"] as! String
+    }
+
+*/
 
 }
 

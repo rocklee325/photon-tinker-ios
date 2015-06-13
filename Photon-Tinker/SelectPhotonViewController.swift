@@ -15,6 +15,10 @@ let kDefaultPhotonFlashingTime : Int = 15
 
 class SelectPhotonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SparkSetupMainControllerDelegate {
 
+    enum SegueIdentifiers : String {
+        case Tinker = "tinker"
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -463,7 +467,7 @@ class SelectPhotonViewController: UIViewController, UITableViewDelegate, UITable
             
             switch indexPath.row
             {
-            case 0...self.devices.count-1 :
+            case 0..<self.devices.count :
                 tableView.deselectRowAtIndexPath(indexPath, animated: false)
                 
 //                println("Tapped on \(self.devices[indexPath.row].description)")
@@ -472,7 +476,7 @@ class SelectPhotonViewController: UIViewController, UITableViewDelegate, UITable
                     TSMessage.showNotificationWithTitle("Device is being flashed", subtitle: "Device is currently being flashed, please wait for the process to finish.", type: .Warning)
 
                 }
-                else if self.devices[indexPath.row].connected
+                else if true// self.devices[indexPath.row].connected //WWDC
                 {
                     switch devices[indexPath.row].isRunningTinker()
                     {
