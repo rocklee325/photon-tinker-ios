@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HKb-cD-2Dk">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--tinker-->
+        <scene sceneID="McL-sf-YWN">
+            <objects>
+                <controller identifier="tinker" id="HKb-cD-2Dk">
+                    <items>
+                        <group width="1" height="34" alignment="left" id="d6C-im-vIs">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="A0" id="FjK-xE-YAm"/>
+                                <slider width="108" alignment="left" continuous="YES" value="128" maximum="255" steps="3" id="Vcn-Nn-EF3"/>
+                            </items>
+                        </group>
+                        <group width="1" height="34" alignment="left" id="mYF-Cy-SYG">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="A4" id="HQ8-5p-8n6"/>
+                                <slider width="111" alignment="left" continuous="YES" value="44" maximum="255" steps="3" id="YYL-Gk-CFx"/>
+                            </items>
+                        </group>
+                        <group width="1" height="34" alignment="left" id="Q5B-bW-1JT">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="D0" id="P8v-09-abD"/>
+                                <switch width="111" height="34" alignment="left" value="YES" id="s2C-I3-JIS"/>
+                            </items>
+                        </group>
+                        <group width="1" height="34" alignment="left" id="fFM-1i-FGT">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="D2" textAlignment="left" id="nnf-PI-Hhw"/>
+                                <label width="111.5" alignment="center" verticalAlignment="center" text="HIGH" textAlignment="right" id="P8t-bt-1T5"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="397" y="258"/>
+        </scene>
+    </scenes>
+</document>
