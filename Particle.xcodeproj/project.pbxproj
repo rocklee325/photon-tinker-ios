@@ -44,6 +44,8 @@
 		50D47F2D1AFAF1A9004AD3AE /* SPKTinkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D47F2C1AFAF1A9004AD3AE /* SPKTinkerViewController.m */; };
 		50D47F301AFAF56C004AD3AE /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D47F2F1AFAF56C004AD3AE /* PinView.m */; };
 		50DD6D681D5945F400A5E68B /* DeviceInspectorSegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD6D671D5945F400A5E68B /* DeviceInspectorSegmentedViewController.swift */; };
+		50DD6D6A1D5978C400A5E68B /* DeviceInspectorTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50DD6D691D5978C400A5E68B /* DeviceInspectorTopView.xib */; };
+		50DD6D6C1D597A1C00A5E68B /* DeviceInspectorTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD6D6B1D597A1C00A5E68B /* DeviceInspectorTopView.swift */; };
 		50E5EF1B1D2DDCBF0087C7B6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5EF171D2DDCBF0087C7B6 /* UIColor.swift */; };
 		50E5EF1C1D2DDCBF0087C7B6 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5EF181D2DDCBF0087C7B6 /* UIImage.swift */; };
 		50E5EF1D1D2DDCBF0087C7B6 /* ZAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5EF191D2DDCBF0087C7B6 /* ZAlertView.swift */; };
@@ -104,6 +106,8 @@
 		50D47F2E1AFAF56C004AD3AE /* PinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
 		50D47F2F1AFAF56C004AD3AE /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
 		50DD6D671D5945F400A5E68B /* DeviceInspectorSegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInspectorSegmentedViewController.swift; sourceTree = "<group>"; };
+		50DD6D691D5978C400A5E68B /* DeviceInspectorTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeviceInspectorTopView.xib; path = "Photon-Tinker/DeviceInspectorTopView.xib"; sourceTree = "<group>"; };
+		50DD6D6B1D597A1C00A5E68B /* DeviceInspectorTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInspectorTopView.swift; sourceTree = "<group>"; };
 		50E5EF171D2DDCBF0087C7B6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		50E5EF181D2DDCBF0087C7B6 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		50E5EF191D2DDCBF0087C7B6 /* ZAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlertView.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 		50EB761D1AE70AE700C925A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				50DD6D6B1D597A1C00A5E68B /* DeviceInspectorTopView.swift */,
 				50BBB1521D1E24D10060659B /* ParticleSpinner.swift */,
 				50D47F2E1AFAF56C004AD3AE /* PinView.h */,
 				50D47F2F1AFAF56C004AD3AE /* PinView.m */,
@@ -279,6 +284,7 @@
 				50B1254F1AE06CF4003C29DC /* Images.xcassets */,
 				5067A0CE1B30EBB500A87D71 /* photon_wifi-old.mp4 */,
 				50B0F9BB1D2C21C3007DB6D1 /* photon_wifi.mp4 */,
+				50DD6D691D5978C400A5E68B /* DeviceInspectorTopView.xib */,
 				50B1254C1AE06CF4003C29DC /* Main.storyboard */,
 				50F62D941AE0721200109F33 /* Fonts */,
 			);
@@ -382,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DD6D6A1D5978C400A5E68B /* DeviceInspectorTopView.xib in Resources */,
 				50F62D9C1AE0721200109F33 /* Gotham-XLightIta.otf in Resources */,
 				5067A0CF1B30EBB500A87D71 /* photon_wifi-old.mp4 in Resources */,
 				507118C21D13512000EB6DD3 /* FiraMono-Regular.ttf in Resources */,
@@ -488,6 +495,7 @@
 				502E819A1CEA6FA4004D4A4B /* DeviceFunctionTableViewCell.swift in Sources */,
 				500B3A161BF6B7B700D83C92 /* ElectronSetupViewController.swift in Sources */,
 				508311491C0EAF98009C0161 /* ScanBarcodeViewController.m in Sources */,
+				50DD6D6C1D597A1C00A5E68B /* DeviceInspectorTopView.swift in Sources */,
 				5048CD251AE1C3F90097150A /* DeviceTableViewCell.swift in Sources */,
 				50E5EF1C1D2DDCBF0087C7B6 /* UIImage.swift in Sources */,
 				50EB76151AE6EF2900C925A9 /* SparkDevice+pins.m in Sources */,
