@@ -93,8 +93,8 @@
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="spS-ZL-p33"/>
-                                    <exclude reference="zZ2-vI-4Pn"/>
                                     <exclude reference="ssr-pZ-Ik9"/>
+                                    <exclude reference="zZ2-vI-4Pn"/>
                                 </mask>
                             </variation>
                         </label>
@@ -142,6 +142,9 @@
                     <exclude reference="yGx-b2-AnL"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="deviceNameLabel" destination="7p1-6b-3bz" id="CCH-Ac-vrK"/>
+            </connections>
         </view>
     </objects>
     <resources>

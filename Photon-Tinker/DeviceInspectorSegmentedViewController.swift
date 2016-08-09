@@ -18,13 +18,13 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController {
         // Parallax Header
         self.segmentedPager.parallaxHeader.view = DeviceInspectorTopView.instanceFromNib()
         self.segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.Fill;
-        self.segmentedPager.parallaxHeader.height = 96;
+        self.segmentedPager.parallaxHeader.height = 88;
         self.segmentedPager.parallaxHeader.minimumHeight = 20;
         
         // Segmented Control customization
         self.segmentedPager.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         self.segmentedPager.segmentedControl.backgroundColor = ParticleUtils.particleAlmostWhiteColor
-        self.segmentedPager.segmentedControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]; //NSFontAttributeName: "Gotham-book"
+        self.segmentedPager.segmentedControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor(), NSFontAttributeName: ParticleUtils.particleRegularFont];
         self.segmentedPager.segmentedControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : ParticleUtils.particleCyanColor]
         self.segmentedPager.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
         self.segmentedPager.segmentedControl.selectionIndicatorColor = ParticleUtils.particleCyanColor
@@ -38,8 +38,11 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var deviceNameLabel : UILabel!
+    
    
     @IBOutlet weak var topBarView: UIView!
+    
     override func segmentedPager(segmentedPager: MXSegmentedPager, titleForSectionAtIndex index: Int) -> String {
         return ["Info", "Data", "Events"][index];
     }
@@ -50,7 +53,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController {
     }
     
     override func segmentedPager(segmentedPager: MXSegmentedPager, segueIdentifierForPageAtIndex index: Int) -> String {
-        return self.segmentedPager(segmentedPager, titleForSectionAtIndex: index)
+        return self.segmentedPager(segmentedPager, titleForSectionAtIndex: index).lowercaseString
     }
 
     
