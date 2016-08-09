@@ -1888,7 +1888,7 @@
                         <segue destination="bVo-qC-obK" kind="custom" identifier="info" customClass="MXPageSegue" id="5BH-mT-tZm"/>
                         <segue destination="kdR-Qg-PIV" kind="custom" identifier="data" customClass="MXPageSegue" id="hky-zP-VYq"/>
                         <segue destination="syL-62-7a7" kind="custom" identifier="events" customClass="MXPageSegue" id="gcW-3h-HGN"/>
-                        <segue destination="zq2-10-iO0" kind="show" identifier="help" id="iym-PI-6Px"/>
+                        <segue destination="zq2-10-iO0" kind="presentation" identifier="help" id="iym-PI-6Px"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8t-6f-xFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1921,6 +1921,6 @@
         <image name="v" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2RL-0f-Ehi"/>
+        <segue reference="k4x-AJ-D7n"/>
     </inferredMetricsTieBreakers>
 </document>

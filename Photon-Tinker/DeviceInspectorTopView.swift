@@ -29,6 +29,7 @@ class DeviceInspectorTopView: UIView {
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var deviceIndicatorImageView: UIImageView!
     
+    @IBOutlet weak var moreActionsButton: UIButton!
     @IBAction func moreActionsButtonTapped(sender: UIButton) {
         if let d = self.delegate {
             d.moreActionsButtonTapped()

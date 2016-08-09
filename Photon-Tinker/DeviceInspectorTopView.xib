@@ -25,7 +25,7 @@
                         <imageView userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTrianglifyHeader" translatesAutoresizingMaskIntoConstraints="NO" id="M4R-Xh-Jmu">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                         </imageView>
-                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-VZ-Gjy" userLabel="actionsButton">
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-VZ-Gjy" userLabel="actionsButton">
                             <rect key="frame" x="552" y="32" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="253-qt-Aib"/>
@@ -151,6 +151,7 @@
             <connections>
                 <outlet property="deviceIndicatorImageView" destination="Peg-Q8-ihn" id="NOM-sH-vgC"/>
                 <outlet property="deviceNameLabel" destination="7p1-6b-3bz" id="2Cu-8n-2kD"/>
+                <outlet property="moreActionsButton" destination="VGX-VZ-Gjy" id="i59-9s-6JC"/>
             </connections>
         </view>
     </objects>

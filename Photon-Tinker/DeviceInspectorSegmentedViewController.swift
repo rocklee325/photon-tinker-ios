@@ -21,7 +21,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
         self.topBarView.delegate = self
         self.device!.delegate = self
         
-        self.segmentedPager.backgroundColor = ParticleUtils.particleAlmostWhiteColor
+        self.segmentedPager.backgroundColor = UIColor.whiteColor()
         // Parallax Header
         self.segmentedPager.parallaxHeader.view = self.topBarView
         self.segmentedPager.parallaxHeader.mode = MXParallaxHeaderMode.Fill;
@@ -58,7 +58,9 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     @IBOutlet weak var topBarView: DeviceInspectorTopView!
     
     override func segmentedPager(segmentedPager: MXSegmentedPager, titleForSectionAtIndex index: Int) -> String {
-        return ["Info", "Data", "Events"][index];
+        return ["Info", "Events", "Data"][index];
+        
+        // The reason for this particular order is that for "Events" to be in the middle - MXSegmentedPager will trigger a viewDidLoad whenever a non-neiboring view is selected - since "Events" is in the middle of 3 views selections - this will never happen and the Events VC will always stay alive, and thus, aggregated events as they get published. The "Data" and "Info" VCs will be reinitialized whenever user tap those without going through the middle "Events" one
     }
     
     
@@ -209,7 +211,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     }
     
     var flashedTinker : Bool = false
-
+    
     
     // 2
     func reflashTinker() {
@@ -279,6 +281,59 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
             
         }
         
+    }
+    
+    
+    
+    
+    func showTutorial() {
+        
+        if ParticleUtils.shouldDisplayTutorialForViewController(self) {
+            
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                
+                if self.navigationController?.visibleViewController == self {
+                    // viewController is visible
+                    
+                    // 3
+                    //                    var tutorial = YCTutorialBox(headline: "Additional actions", withHelpText: "Tap the three dots button for more actions such as reflashing the Tinker firmware, force refreshing the device info/data, signal the device (LED shouting rainbows), changing device name and easily accessing Particle documentation and support portal.")
+                    //                    tutorial.showAndFocusView(self.moreActionsButton)
+                    //
+                    //                    // 2
+                    //                    tutorial = YCTutorialBox(headline: "Modes", withHelpText: "Device inspector has 3 modes - tap 'Info' to see your device network parameters, tap 'data' to interact with your device exposed functions and variables, tap 'events' to view a searchable list of the device published events.")
+                    //
+                    //                    tutorial.showAndFocusView(self.modeSegmentedControl)
+                    
+                    
+                    // 1
+                    let tutorial = YCTutorialBox(headline: "Welcome to Device Inspector", withHelpText: "Here you can see advanced information on your device and interact with it further than Tinker. Tap the blue clipboard icon to copy the corresponding field to the clipboard.", withCompletionBlock: {
+                        // 2
+                        let tutorial = YCTutorialBox(headline: "Modes", withHelpText: "Device inspector has 3 modes - tap 'Info' to see your device network parameters, tap 'data' to interact with your device exposed functions and variables, tap 'events' to view a searchable list of the device published events.", withCompletionBlock:  {
+                            let tutorial = YCTutorialBox(headline: "Additional actions", withHelpText: "Tap the three dots button for more actions such as reflashing the Tinker firmware, force refreshing the device info/data, signal the device (LED shouting rainbows), changing device name and easily accessing Particle documentation and support portal.")
+                            
+                            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.2 * Double(NSEC_PER_SEC)))
+                            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                                tutorial.showAndFocusView(self.topBarView.moreActionsButton)
+                            }
+                            
+                            
+                        })
+                        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.2 * Double(NSEC_PER_SEC)))
+                        dispatch_after(delayTime, dispatch_get_main_queue()) {
+                            
+                            tutorial.showAndFocusView(self.segmentedPager)
+                        }
+                        
+                    })
+                    
+                    tutorial.showAndFocusView(self.view)
+                    
+                    ParticleUtils.setTutorialWasDisplayedForViewController(self)
+                }
+                
+            }
+        }
     }
     
 }

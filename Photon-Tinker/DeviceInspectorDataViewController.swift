@@ -68,8 +68,6 @@ class DeviceInspectorDataViewController: DeviceInspectorChildViewController, UIT
     
     func showTutorial() {
         
-        print ("data showTutorial");
-        
         if ParticleUtils.shouldDisplayTutorialForViewController(self) {
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))

@@ -76,8 +76,11 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     var firstTime : Bool = true
     
     
-    override func viewWillAppear(animated: Bool) {
-        print("events - viewWillAppear")
+//    override func viewWillAppear(animated: Bool) {
+    override func viewDidLoad() {
+//        print("events - viewWillAppear")
+        print("events - viewDidLoad")
+
         
         if firstTime {
             subscribeToDeviceEvents()
@@ -220,7 +223,7 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     
     override func viewWillDisappear(animated: Bool) {
         print ("events - viewWillDisappear")
-        unsubscribeFromDeviceEvents()
+//        unsubscribeFromDeviceEvents()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -281,9 +284,6 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
         print("events - viewDidUnload")
     }
     
-    override func viewDidLoad() {
-        print("events - viewDidLoad")
-    }
     
  
 }
