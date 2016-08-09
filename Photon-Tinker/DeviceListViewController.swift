@@ -152,6 +152,13 @@ class DeviceListViewController: UIViewController, UITableViewDelegate, UITableVi
                 Mixpanel.sharedInstance().track("Tinker: Device Inspector", properties: ["device":deviceInfo.deviceType])
                 
             }
+            
+            // temp debug
+            if let vc = segue.destinationViewController as? DeviceInspectorSegmentedViewController {
+                vc.device = self.selectedDevice
+                
+            }
+
         }
     }
 

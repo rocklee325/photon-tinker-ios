@@ -21,6 +21,8 @@
 #include "YCTutorialBox.h"
 #include "UIScrollView+PullToRefreshCoreText.h"
 #include "DateTools.h"
+#import "MXSegmentedPager.h"
+#import "MXSegmentedPagerController.h"
 
 #include "Mixpanel.h"
 //#include "ParticleKeys.h"

@@ -23,6 +23,11 @@ class DeviceInspectorDataViewController: DeviceInspectorChildViewController, UIT
         header.textLabel?.textColor = UIColor.darkGrayColor()// sparkDarkGrayColor
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        refreshVariableList() // debug
+    }
     
     
     override func viewDidAppear(animated: Bool) {
