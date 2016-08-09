@@ -77,6 +77,8 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     
     
     override func viewWillAppear(animated: Bool) {
+        print("events - viewWillAppear")
+        
         if firstTime {
             subscribeToDeviceEvents()
             firstTime = false
@@ -217,6 +219,7 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     @IBOutlet weak var playPauseButton: UIButton!
     
     override func viewWillDisappear(animated: Bool) {
+        print ("events - viewWillDisappear")
         unsubscribeFromDeviceEvents()
     }
     
@@ -273,7 +276,14 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     
     
     
-
+    
+    deinit {
+        print("events - viewDidUnload")
+    }
+    
+    override func viewDidLoad() {
+        print("events - viewDidLoad")
+    }
     
  
 }

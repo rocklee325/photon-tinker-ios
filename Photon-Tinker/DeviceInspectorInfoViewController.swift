@@ -91,6 +91,12 @@ class DeviceInspectorInfoViewController: DeviceInspectorChildViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        print("info - viewWillAppear")
+        updateDeviceInfoDisplay()
+    }
+    
+    override func viewDidLoad() {
+        print("info - viewDidLoad")
         updateDeviceInfoDisplay()
     }
     

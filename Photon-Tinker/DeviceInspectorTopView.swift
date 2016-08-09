@@ -8,11 +8,18 @@
 
 import UIKit
 
-@IBDesignable
+
+protocol DeviceInspectorTopViewDelegate {
+    
+    func backButtonTapped()
+    func moreActionsButtonTapped()
+    
+}
+
 class DeviceInspectorTopView: UIView {
     
-    class func instanceFromNib(owner: UIViewController?) -> UIView {
-        return UINib(nibName: "DeviceInspectorTopView", bundle: nil).instantiateWithOwner(owner, options: nil)[0] as! UIView
+    class func instanceFromNib() -> UIView {
+        return UINib(nibName: "DeviceInspectorTopView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,9 +27,20 @@ class DeviceInspectorTopView: UIView {
     }
     
     @IBOutlet weak var deviceNameLabel: UILabel!
+    @IBOutlet weak var deviceIndicatorImageView: UIImageView!
     
-    override func prepareForInterfaceBuilder() {
-        DeviceInspectorTopView.instanceFromNib(nil)
+    @IBAction func moreActionsButtonTapped(sender: UIButton) {
+        if let d = self.delegate {
+            d.moreActionsButtonTapped()
+        }
     }
+
+    @IBAction func backButtonTapped(sender: UIButton) {
+        if let d = self.delegate {
+            d.backButtonTapped()
+        }
+    }
+    
+    var delegate : DeviceInspectorTopViewDelegate?
     
 }

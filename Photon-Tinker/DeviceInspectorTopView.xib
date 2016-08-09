@@ -25,7 +25,7 @@
                         <imageView userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgTrianglifyHeader" translatesAutoresizingMaskIntoConstraints="NO" id="M4R-Xh-Jmu">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                         </imageView>
-                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-VZ-Gjy" userLabel="actionsButton">
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-VZ-Gjy" userLabel="actionsButton">
                             <rect key="frame" x="552" y="32" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="253-qt-Aib"/>
@@ -34,6 +34,9 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="8"/>
                             <state key="normal" image="imgThreeDots"/>
+                            <connections>
+                                <action selector="moreActionsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="aXR-cH-3bf"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1C-lx-XHx" userLabel="Border">
                             <rect key="frame" x="0.0" y="63" width="600" height="1"/>
@@ -48,7 +51,7 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-fL-4yN" userLabel="backButton">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-fL-4yN" userLabel="backButton">
                             <rect key="frame" x="16" y="24" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="1Uz-ej-cSl"/>
@@ -57,6 +60,9 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="12" maxY="6"/>
                             <state key="normal" image="imgChevronLeft"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="yVa-gx-9aC"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="0.25" colorSpace="calibratedRGB"/>
@@ -143,7 +149,8 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="deviceNameLabel" destination="7p1-6b-3bz" id="CCH-Ac-vrK"/>
+                <outlet property="deviceIndicatorImageView" destination="Peg-Q8-ihn" id="NOM-sH-vgC"/>
+                <outlet property="deviceNameLabel" destination="7p1-6b-3bz" id="2Cu-8n-2kD"/>
             </connections>
         </view>
     </objects>

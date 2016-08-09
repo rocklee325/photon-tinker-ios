@@ -141,12 +141,12 @@
 		5014D1EE1AE87B7000725BA8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				50DD6D671D5945F400A5E68B /* DeviceInspectorSegmentedViewController.swift */,
 				50B1254A1AE06CF4003C29DC /* WelcomeViewController.swift */,
 				5048CD221AE09AD00097150A /* DeviceListViewController.swift */,
 				50D47F2B1AFAF1A9004AD3AE /* SPKTinkerViewController.h */,
 				50D47F2C1AFAF1A9004AD3AE /* SPKTinkerViewController.m */,
 				50BBB1541D2200C50060659B /* DeviceInspectorViewController.swift */,
+				50DD6D671D5945F400A5E68B /* DeviceInspectorSegmentedViewController.swift */,
 				507A84BB1D24857F0050B3B6 /* DeviceInspectorChildViewController.swift */,
 				507A84B71D23686C0050B3B6 /* DeviceInspectorInfoViewController.swift */,
 				501DA8E31D24A5D0003CE43F /* DeviceInspectorDataViewController.swift */,
