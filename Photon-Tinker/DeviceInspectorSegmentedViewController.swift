@@ -53,8 +53,10 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     
     override func segmentedPager(segmentedPager: MXSegmentedPager, didSelectViewWithIndex index: Int) {
         
-        let vc = self.segmentedPager(segmentedPager, viewControllerForPageAtIndex: index)
-        print ("didSelectViewWithIndex "+String(index)+" "+vc.description)
+        let vc = self.segmentedPager(segmentedPager, viewControllerForPageAtIndex: index) as! DeviceInspectorChildViewController
+        print ("didSelectViewWithIndex "+String(index)+" "+vc.description) // debug
+        vc.showTutorial()
+        
 //        vc.viewDidAppear(true)
     }
     
@@ -91,7 +93,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? DeviceInspectorChildViewController {
             vc.device = self.device
-            print("pager segue : "+segue.description)
+//            print("pager segue : "+segue.description)
             
         }
         
@@ -221,6 +223,8 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
             // test what happens when device goes offline and refresh is triggered
             if (err == nil) {
                 // do stuff on visible VC
+                
+                
             }
             })
     }

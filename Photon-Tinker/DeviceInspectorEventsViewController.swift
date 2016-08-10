@@ -73,26 +73,18 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     @IBOutlet weak var clearEventsButton: UIButton!
     var paused : Bool = false
     var filtering : Bool = false
-    var firstTime : Bool = true
     
     
 //    override func viewWillAppear(animated: Bool) {
     override func viewDidLoad() {
-//        print("events - viewWillAppear")
         print("events - viewDidLoad")
-
-        
-        if firstTime {
-            subscribeToDeviceEvents()
-            firstTime = false
-        }
-        showTutorial()
+        subscribeToDeviceEvents()
     }
     
     
-    func showTutorial() {
+    override func showTutorial() {
         
-        print ("events showTutorial");
+        print ("showTutorial for events");
         
         if ParticleUtils.shouldDisplayTutorialForViewController(self) {
             
