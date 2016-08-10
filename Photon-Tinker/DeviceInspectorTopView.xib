@@ -87,7 +87,7 @@
                     <rect key="frame" x="0.0" y="64" width="600" height="32"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="device_name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7p1-6b-3bz">
-                            <rect key="frame" x="32" y="8" width="536" height="17"/>
+                            <rect key="frame" x="244" y="8" width="112" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="240" id="spS-ZL-p33"/>
                                 <constraint firstAttribute="height" constant="24" id="ssr-pZ-Ik9"/>
@@ -118,9 +118,8 @@
                         <constraint firstAttribute="trailing" secondItem="Peg-Q8-ihn" secondAttribute="trailing" constant="8" id="M1J-E1-Lz3"/>
                         <constraint firstItem="7p1-6b-3bz" firstAttribute="centerX" secondItem="pnB-O8-iF6" secondAttribute="centerX" id="WVJ-Qn-q0k"/>
                         <constraint firstItem="7p1-6b-3bz" firstAttribute="top" secondItem="pnB-O8-iF6" secondAttribute="top" constant="8" id="fvC-9A-aJO"/>
-                        <constraint firstAttribute="trailing" secondItem="7p1-6b-3bz" secondAttribute="trailing" constant="32" id="h7j-p8-m5Y"/>
                         <constraint firstItem="Peg-Q8-ihn" firstAttribute="centerY" secondItem="7p1-6b-3bz" secondAttribute="centerY" id="mYs-y2-O7c"/>
-                        <constraint firstItem="7p1-6b-3bz" firstAttribute="leading" secondItem="pnB-O8-iF6" secondAttribute="leading" constant="32" id="r4v-Jy-n1D"/>
+                        <constraint firstItem="7p1-6b-3bz" firstAttribute="centerX" secondItem="pnB-O8-iF6" secondAttribute="centerX" id="sjT-ja-Mlv"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">

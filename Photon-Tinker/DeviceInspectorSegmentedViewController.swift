@@ -10,15 +10,15 @@ import UIKit
 //import MXSegmentedPager
 
 
-class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkDeviceDelegate,DeviceInspectorTopViewDelegate, UITextFieldDelegate {
+class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkDeviceDelegate, DeviceInspectorTopViewDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.topBarView = DeviceInspectorTopView.instanceFromNib() as! DeviceInspectorTopView
-        self.topBarView.deviceNameLabel.text = self.device?.name
-        ParticleUtils.animateOnlineIndicatorImageView(self.topBarView.deviceIndicatorImageView, online: self.device!.connected, flashing: self.device!.isFlashing)
-        self.topBarView.delegate = self
+        self.topBarView = DeviceInspectorTopView.instanceFromNib() as? DeviceInspectorTopView
+        self.topBarView!.deviceNameLabel.text = self.device?.name
+        ParticleUtils.animateOnlineIndicatorImageView(self.topBarView!.deviceIndicatorImageView, online: self.device!.connected, flashing: self.device!.isFlashing)
+        self.topBarView!.delegate = self
         self.device!.delegate = self
         
         self.segmentedPager.backgroundColor = UIColor.whiteColor()
@@ -52,10 +52,25 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     }
     
     override func segmentedPager(segmentedPager: MXSegmentedPager, didSelectViewWithIndex index: Int) {
-        print ("didSelectViewWithIndex "+String(index))
+        
+        let vc = self.segmentedPager(segmentedPager, viewControllerForPageAtIndex: index)
+        print ("didSelectViewWithIndex "+String(index)+" "+vc.description)
+//        vc.viewDidAppear(true)
     }
     
-    @IBOutlet weak var topBarView: DeviceInspectorTopView!
+    var topBarView: DeviceInspectorTopView?
+    
+//    override func segmentedPager(segmentedPager: MXSegmentedPager, viewControllerForPageAtIndex index: Int) -> UIViewController {
+//        let vcName = self.segmentedPager(segmentedPager, titleForSectionAtIndex: index)
+//        let vcStoryboardIdentifier = "deviceInspector"+vcName
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(vcStoryboardIdentifier) as! DeviceInspectorChildViewController
+//        print("going to VC: "+vc.description)
+//        vc.device = self.device
+////        vc.viewWillAppear(true)
+//        return vc
+//    }
+    
+    
     
     override func segmentedPager(segmentedPager: MXSegmentedPager, titleForSectionAtIndex index: Int) -> String {
         return ["Info", "Events", "Data"][index];
@@ -184,8 +199,8 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
             
             if error == nil {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.topBarView.deviceNameLabel.text = newName!.stringByReplacingOccurrencesOfString(" ", withString: "_")
-                    self.topBarView.deviceNameLabel.setNeedsLayout()
+                    self.topBarView!.deviceNameLabel.text = newName!.stringByReplacingOccurrencesOfString(" ", withString: "_")
+                    self.topBarView!.deviceNameLabel.setNeedsLayout()
                 }
                 
             }
@@ -314,7 +329,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
                             
                             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.2 * Double(NSEC_PER_SEC)))
                             dispatch_after(delayTime, dispatch_get_main_queue()) {
-                                tutorial.showAndFocusView(self.topBarView.moreActionsButton)
+                                tutorial.showAndFocusView(self.topBarView!.moreActionsButton)
                             }
                             
                             
@@ -335,5 +350,20 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
             }
         }
     }
+    
+    
+    func sparkDevice(device: SparkDevice, didReceiveSystemEvent event: SparkDeviceSystemEvent) {
+        ParticleUtils.animateOnlineIndicatorImageView(self.topBarView!.deviceIndicatorImageView, online: self.device!.connected, flashing: self.device!.isFlashing)
+        if self.flashedTinker && event == .FlashSucceeded {
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                TSMessage.showNotificationWithTitle("Flashing successful", subtitle: "Your device has been flashed with Tinker firmware successfully", type: .Success)
+            }
+            self.flashedTinker = false
+            //            self.refreshData()
+            
+        }
+    }
+    
     
 }
