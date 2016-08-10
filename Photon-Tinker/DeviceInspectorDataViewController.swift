@@ -18,15 +18,17 @@ class DeviceInspectorDataViewController: DeviceInspectorChildViewController, UIT
     var variablesList : [String]?
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = ParticleUtils.particleAlmostWhiteColor
+        view.tintColor = UIColor.whiteColor()
         let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.darkGrayColor()// sparkDarkGrayColor
+        header.textLabel?.textColor = UIColor.darkGrayColor()
+        header.layoutMargins.left = 0
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshVariableList() // debug
+        refreshVariableList()
     }
     
     
@@ -66,8 +68,9 @@ class DeviceInspectorDataViewController: DeviceInspectorChildViewController, UIT
     
     
     
-    func showTutorial() {
+    override func showTutorial() {
         
+        print("showTutorial for data")
         if ParticleUtils.shouldDisplayTutorialForViewController(self) {
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
@@ -117,7 +120,6 @@ class DeviceInspectorDataViewController: DeviceInspectorChildViewController, UIT
         // move to refresh function
         
         self.refreshVariableList()
-        showTutorial()
         
     }
     

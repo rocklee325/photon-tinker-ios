@@ -103,6 +103,7 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         case 2:
             cell.helpItemLabel.text = "Reset App Tutorials";
+            cell.accessoryType = .None
             
         default:
             print()
@@ -179,7 +180,8 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         default:
             ParticleUtils.resetTutorialWasDisplayed()
             dispatch_async(dispatch_get_main_queue()) {
-                TSMessage.showNotificationWithTitle("Tutorials", subtitle: "Tutorials were reset and will be displayed ", type: .Success)
+//                TSMessage.showNotificationWithTitle("Tutorials", subtitle: , type: .Success)
+                TSMessage.showNotificationInViewController(self, title: "Tutorials reset", subtitle: "Tutorials were reset and will be displayed", type: .Success)
             }
 
             openWebView = false
