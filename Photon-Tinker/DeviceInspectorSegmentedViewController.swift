@@ -107,7 +107,6 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     
     func moreActionsButtonTapped() {
         
-        ParticleUtils.blinkView(self.topBarView!.moreActionsButton)
         // heading
         view.endEditing(true)
         let dialog = ZAlertView(title: "More Actions", message: nil, alertType: .MultipleChoice)

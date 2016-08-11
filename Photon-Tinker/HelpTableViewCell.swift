@@ -20,4 +20,5 @@ class HelpTableViewCell: UITableViewCell {
     
     @IBOutlet weak var helpItemLabel: UILabel!
     
+    @IBOutlet weak var accessoryButton: UIButton!
 }

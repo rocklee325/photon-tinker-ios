@@ -54,14 +54,23 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
         return (section==2) ? 1 : 3;
     }
     
+
+    func makeAppVersionString() -> String {
+        let infoDictionary = NSBundle.mainBundle().infoDictionary as [String : AnyObject]?
+        let version = infoDictionary!["CFBundleShortVersionString"] as! String
+        let build = infoDictionary!["CFBundleVersion"] as! String
+        return NSLocalizedString("Particle Tinker V\(version) (\(build))", comment: "")
+
+    }
     
+    /* 
+ 
+    // DISABLED till tutorials are back
+ 
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 2 { //1?
-            let infoDictionary = NSBundle.mainBundle().infoDictionary as [String : AnyObject]?
-            let version = infoDictionary!["CFBundleShortVersionString"] as! String
-            let build = infoDictionary!["CFBundleVersion"] as! String
             let label = UILabel()
-            label.text = NSLocalizedString("Particle Tinker V\(version) (\(build))", comment: "")
+            label.text = self.makeAppVersionString()
             label.textColor = UIColor.grayColor()
             label.font = UIFont(name: "Gotham-Book", size: 13)!
             label.textAlignment = .Center
@@ -70,6 +79,7 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             return nil
         }
     }
+ */
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -102,9 +112,8 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         default:
-            cell.helpItemLabel.text = "Reset App Tutorials";
-            cell.accessoryType = .None
-            cell.accessoryView = nil
+            cell.helpItemLabel.text = self.makeAppVersionString() // "Reset App Tutorials";
+            cell.accessoryButton = nil
             
         }
         
@@ -176,12 +185,13 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         default:
+            /*
             ParticleUtils.resetTutorialWasDisplayed()
             dispatch_async(dispatch_get_main_queue()) {
 //                TSMessage.showNotificationWithTitle("Tutorials", subtitle: , type: .Success)
                 TSMessage.showNotificationInViewController(self, title: "Tutorials reset", subtitle: "Tutorials were reset and will be displayed", type: .Success)
             }
-
+            */
             openWebView = false
             
             
