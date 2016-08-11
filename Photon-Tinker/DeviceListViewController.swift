@@ -201,6 +201,7 @@ class DeviceListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func showTutorial() {
+        return
         
        if ParticleUtils.shouldDisplayTutorialForViewController(self) {
     

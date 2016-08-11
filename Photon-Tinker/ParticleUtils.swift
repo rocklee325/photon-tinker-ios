@@ -114,6 +114,14 @@ class ParticleUtils: NSObject {
     }
 
     
+    class func blinkView(view : UIView) {
+        UIView.animateWithDuration(0.1, //Time duration you want,
+            delay: 0.0,
+            options: [.Autoreverse],
+            animations: {  view.alpha = 0.0 },
+            completion: { (Bool) in view.alpha = 1.0 })
+    }
+    
     class func animateOnlineIndicatorImageView(imageView: UIImageView, online: Bool, flashing: Bool) {
         dispatch_async(dispatch_get_main_queue(), {
             imageView.image = UIImage(named: "imgCircle")

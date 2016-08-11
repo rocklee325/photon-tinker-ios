@@ -37,6 +37,7 @@ class DeviceInspectorInfoViewController: DeviceInspectorChildViewController {
     
     override func showTutorial() {
         // 
+        return
         print("showTutorial for info")
     }
     

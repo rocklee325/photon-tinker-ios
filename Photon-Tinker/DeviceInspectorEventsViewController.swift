@@ -84,7 +84,10 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
     
     override func showTutorial() {
         
+        return;
+        
         print ("showTutorial for events");
+//        self.view.bringSubviewToFront(self.clearEventsButton)
         
         if ParticleUtils.shouldDisplayTutorialForViewController(self) {
             
@@ -93,11 +96,13 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
                 
                 if !self.view.hidden {
                     // viewController is visible
-                   
+                   self.view.layer.zPosition = 1
+                    
                     var tutorial = YCTutorialBox(headline: "Clear events", withHelpText: "Tap the trash can icon to remove all the events from the list.")
                     tutorial.showAndFocusView(self.clearEventsButton)
                     
-                    // 3
+                    // 3 
+                    
                     tutorial = YCTutorialBox(headline: "Play and pause", withHelpText: "Tap play/pause button to pause the events stream momentarily. Events published while stream is paused will not be added.")
                     tutorial.showAndFocusView(self.playPauseButton)
                     
@@ -111,8 +116,7 @@ class DeviceInspectorEventsViewController: DeviceInspectorChildViewController, U
                     tutorial = YCTutorialBox(headline: "Device Events", withHelpText: "This is a searchable log of the events your device published to the cloud. Tap the blue clipboard button to copy event payload to your phone clipboard.")
                     
                     tutorial.showAndFocusView(self.deviceEventsTableView)
-                    
-                    
+                                        
                     ParticleUtils.setTutorialWasDisplayedForViewController(self)
                     self.deviceEventsTableView.reloadData()
                 }

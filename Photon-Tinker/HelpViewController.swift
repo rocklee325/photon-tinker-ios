@@ -97,17 +97,15 @@ class HelpViewController: UIViewController, UITableViewDelegate, UITableViewData
             case 1:
                 cell.helpItemLabel.text = "Troubleshooting"
             default:
-                cell.helpItemLabel.text = "Contact Us"
+                cell.helpItemLabel.text = "Contact Particle"
                 
             }
             
-        case 2:
+        default:
             cell.helpItemLabel.text = "Reset App Tutorials";
             cell.accessoryType = .None
+            cell.accessoryView = nil
             
-        default:
-            print()
-        
         }
         
         return cell

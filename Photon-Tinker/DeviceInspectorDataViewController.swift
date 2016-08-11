@@ -70,6 +70,8 @@ class DeviceInspectorDataViewController: DeviceInspectorChildViewController, UIT
     
     override func showTutorial() {
         
+        return;
+            
         print("showTutorial for data")
         if ParticleUtils.shouldDisplayTutorialForViewController(self) {
             

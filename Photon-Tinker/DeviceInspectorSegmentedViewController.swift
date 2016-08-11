@@ -54,7 +54,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     override func segmentedPager(segmentedPager: MXSegmentedPager, didSelectViewWithIndex index: Int) {
         
         let vc = self.segmentedPager(segmentedPager, viewControllerForPageAtIndex: index) as! DeviceInspectorChildViewController
-        print ("didSelectViewWithIndex "+String(index)+" "+vc.description) // debug
+//        print ("didSelectViewWithIndex "+String(index)+" "+vc.description) // debug
         vc.showTutorial()
         
 //        vc.viewDidAppear(true)
@@ -107,6 +107,7 @@ class DeviceInspectorSegmentedViewController: MXSegmentedPagerController, SparkD
     
     func moreActionsButtonTapped() {
         
+        ParticleUtils.blinkView(self.topBarView!.moreActionsButton)
         // heading
         view.endEditing(true)
         let dialog = ZAlertView(title: "More Actions", message: nil, alertType: .MultipleChoice)

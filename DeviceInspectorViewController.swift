@@ -393,6 +393,8 @@ class DeviceInspectorViewController : UIViewController, UITextFieldDelegate, Spa
     
     func showTutorial() {
         
+        return;
+        
         if ParticleUtils.shouldDisplayTutorialForViewController(self) {
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
